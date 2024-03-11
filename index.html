@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evan Tracker</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url(images/heartThrob.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <!-- Comment -->
+
+    <div id="intro">
+        <h1 id="myH1">Slash#6544</h1>
+        <img src="images/heartThrob.jpg" style="border-radius: 50%; height: 50px;">
+    </div>
+    
+    
+    <br>
+    
+
+    <div class="containerForm">
+        <form action="action_page.php">
+      
+          <label for="IGN">In Game Name (optional)</label>
+          <input type="text" id="IGN" name="IGN" placeholder="Your in game name...">
+      
+          <label class="rating-label"><strong>Rating :3</strong>
+            <input
+              class="ratingStars"
+              id="ratingStars"
+              max="5"
+              oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+              step="0.5"
+              style="--value:2.5"
+              type="range"
+              value="2.5">
+              
+          </label>
+          
+          
+          <br><br>
+          <label for="lane">Lane played</label>
+          <select id="lane" name="lane">
+            <option value="Top">Top Lane</option>
+            <option value="Jungle">Jungle</option>
+            <option value="Mid">Mid Lane</option>
+            <option value="Bottom-Lane">Bottom Lane</option>
+            <option value="Support">Support</option>
+          </select>
+      
+          <label for="explination">Provide an explination for your rating (optional)</label>
+          <textarea id="explination" name="explination" placeholder="Write something.." style="height:200px"></textarea>
+        </form>
+    </div>
+
+    <button id="NewCommentSubmit">Submit</button>
+
+    <br> <br>
+    <label for="sorting">Sort By:</label>
+
+    <select name="sorting" id="sorting">
+        <option value="lowHigh">Sort Low -> High</option>
+        <option value="highLow">Sort High -> Low</option>
+        <option value="dateRecent">Newest</option>
+        <option value="dateOld">Oldest</option>
+    </select>
+
+    <div id="responses">
+    </div>
+
+
+
+
+    
+    
+    <script src="main.js"></script>
+</body>
+</html>
