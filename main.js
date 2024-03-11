@@ -32,7 +32,6 @@ fetch("https://evan-tracker.fly.dev", {
 let commentObjetcs = [];
 fetch("https://evan-tracker.fly.dev/pullJSON")
     .then(response => {
-        console.log(response.json())
         return response.json()})
     .then(values => {
         console.log(values)
