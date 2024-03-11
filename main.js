@@ -16,7 +16,7 @@ getCurrentDateString = function(){
 
 console.log(date.toLocaleDateString())
 
-// Testing Fetch on local server
+// Testing Fetch on api server
 fetch("https://evan-tracker.fly.dev", {
     method: 'GET'
 })
@@ -30,11 +30,18 @@ fetch("https://evan-tracker.fly.dev", {
 
 // Fetching all of the previous comments from the JSON file, also showing all of the comments
 let commentObjetcs = [];
-fetch("comments.json")
-    .then(response => response.json())
-    .then(values => commentObjetcs = values)
+fetch("https://evan-tracker.fly.dev/pullJSON")
+    .then(response => {
+        console.log(response)
+        return response.json()})
+    .then(values => {
+        console.log(values)
+        commentObjetcs = values})
     .catch(error => console.log(error))
-    .finally(() => showComments(commentObjetcs));
+    .finally(() => {
+        console.log(commentObjetcs)
+        showComments(commentObjetcs)
+    });
 //
 
 // Showing the comments, basically just loops through each comment and adds the data 

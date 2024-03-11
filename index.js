@@ -21,6 +21,22 @@ app.get("/", (req, res) => {
   res.status(200).send("haiiiii")
 })
 
+app.get("/pullJSON", (req, res) => {
+
+  //res.send("I am here, and alive")
+
+  console.log("I AM HERE, YOU MUST BELIEVE ME")
+  data = fs.readFileSync("comments.json")
+  console.log(data)
+  words = JSON.parse(data)
+  console.log(words)
+
+  res.status(200).send(JSON.stringify(words))
+  //
+
+  
+})
+
 app.post("/send", (req, res) =>{
   res.status(200);
   console.log(req.body)
