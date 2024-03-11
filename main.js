@@ -17,7 +17,7 @@ getCurrentDateString = function(){
 console.log(date.toLocaleDateString())
 
 // Testing Fetch on local server
-fetch("http://localhost:3000", {
+fetch("https://evan-tracker.fly.dev", {
     method: 'GET'
 })
     .then(response => response.json())
@@ -76,7 +76,7 @@ pushReply = function(o){
     commentObjetcs.push(o);
 
 
-    fetch("http://127.0.0.1:3000/send", {
+    fetch("https://evan-tracker.fly.dev/send", {
         method: 'POST',
         body: JSON.stringify(commentObjetcs),
         headers: {
