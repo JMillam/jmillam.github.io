@@ -186,7 +186,7 @@ document.getElementById("sorting").onchange = function(){
 updateAverageRating = function(){
     findAverageRating();
 
-    document.getElementById("averageRating").innerHTML = `Average Rating: ${(findAverageRating()/2).toFixed(2)}/5`
+    document.getElementById("averageRating").innerHTML = `Average Rating: ${(findAverageRating()).toFixed(2)}/5`
 }
 
 findAverageRating = function(){
