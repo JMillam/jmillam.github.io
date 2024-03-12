@@ -1,4 +1,62 @@
 
+
+#intro{
+    margin: auto;
+    width: 80%;
+    height: auto;
+    border-radius: 25px;
+}
+
+#profile-icon{
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slash{
+    position: relative;
+    display: block;
+    top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+a:link, a:visited{
+    color: blue;
+}
+
+#description{
+    font-size: 30px;
+    position: relative;
+    display: block;
+    top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+
+#averageRating{
+    font-size: 40px;
+    font-family: 'Courier New';
+    position: relative;
+    display: block;
+    top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+
+
 /* Style the container with a rounded border, grey background and some padding and margin */
 .container {
     border: 2px solid #ccc;
@@ -49,13 +107,6 @@ margin-right: 15px;
 
 }
 
-#intro{
-    margin: auto;
-    width: 90%;
-    height: 600px;
-    background-color:aliceblue;
-    border-radius: 25px;
-}
 
 .rating{
     text-align: right;
@@ -63,6 +114,12 @@ margin-right: 15px;
     right: 100px;
 }
 
+#teamImage{
+    width: 80px;
+    position: relative;
+    top: -200%;
+    display: block;
+}
 
 
 

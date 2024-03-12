@@ -1,8 +1,3 @@
-// TODO Make the input area prettier
-//* TODO Display date of comment - DONE
-//* TODO Display the role of comment as the picture - DONE
-//* TODO Get the API hosted online
-//* TODO Set up the website to be ran through github
 // TODO Look into RIOT API integration
 
 
@@ -51,30 +46,41 @@ showComments = function(commentObjetcs){
             "comment": response.comment,
             "rating": response.rating,
             "lane": response.lane,
+            "team": response.team,
             "date": response.date});
 
     })
+    updateAverageRating()
 }
 
 
 // This is the function for when we submit a new comment
 document.getElementById("NewCommentSubmit").onclick = function(){
-    const user = document.getElementById("IGN").value;
+    var user = document.getElementById("IGN").value;
     const comment = document.getElementById("explination").value;
-    const rating = document.getElementById("ratingStars").value * 2;
+    const rating = document.getElementById("ratingStars").value;
     const lane = document.getElementById("lane").value;
+    const team = document.getElementById("team").value;
+
+    if(user == ""){
+        user = "Anonymous"
+    }
 
     let newObject = {
         "username": user,
         "comment": comment,
         "rating": Number(rating),
         "lane": lane,
+        "team": team,
         "date": getCurrentDateString()
     }
 
     pushReply(newObject)
 
-    addTestimonial(newObject);;
+    addTestimonial(newObject);
+
+    window.alert("Thanks for submitting a comment! :3")
+    location.reload();
 }
 
 // This function will push a reply to the JSON file on the server's side
@@ -94,8 +100,15 @@ pushReply = function(o){
 
 // This function will add a testimonial one at a time, this is useful for when we want to sort them!
 addTestimonial = function(o){
+    let teamIcon;
+    if(o.team == "Ally"){
+        teamIcon = "blue_minion"
+    } else{
+        teamIcon = "red_minion"
+    }
+
     currentString = document.getElementById("responses").innerHTML;
-    currentString = currentString + `<div class="container"> <img src="images/${o.lane}.png" alt="Avatar" style="width:90px"> <p><span>${o.username}</span> <span class="rating"> ${o.rating}/10</span></p> <p>${o.comment}</p> <p class=showingDate> ${o.date} </p></div>`
+    currentString = currentString + `<div class="container"> <img src="images/${o.lane}.png" alt="Avatar" style="width:90px"> <p><span>${o.username} </span> <img id="teamImage" src=images/${teamIcon}.png> <span class="rating"> ${o.rating}/5</span></p> <p>${o.comment}</p> <p class=showingDate> ${o.date} </p></div>`
     document.getElementById("responses").innerHTML = currentString;
 }
 
@@ -168,3 +181,20 @@ document.getElementById("sorting").onchange = function(){
     sortedObjects.forEach(response => addTestimonial(response))
 }
 
+
+// Here I will find the average rating from all of the comments so that we can update the front page
+updateAverageRating = function(){
+    findAverageRating();
+
+    document.getElementById("averageRating").innerHTML = `Average Rating: ${(findAverageRating()/2).toFixed(2)}/5`
+}
+
+findAverageRating = function(){
+    total = 0;
+    commentObjetcs.forEach(comment => {
+        total+= comment.rating
+    })
+
+    console.log(total/commentObjetcs.length)
+    return (total/commentObjetcs.length)
+}

@@ -2,3 +2,6 @@ GET https://evan-tracker.fly.dev
 
 ####
 GET http://127.0.0.1:5500/index.html
+
+###
+GET https://evan-tracker.fly.dev/pullJSON
